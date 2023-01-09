@@ -1,0 +1,79 @@
+{
+  "__default__": {},
+  "KeyValueDb": {
+    "user1": {
+      "guard": "022b14c14cfa47aba625dab508c4156b",
+      "value": {
+        "name": "John",
+        "age": 25,
+        "address": "New York",
+        "phone": "1234567890",
+        "email": "john25@gmail.com"
+      }
+    },
+    "user3": {
+      "guard": "1e5e1d58ecd14e7fa6fcb6acc56f5690",
+      "value": {
+        "name": "Ola",
+        "age": 22,
+        "address": "Warsaw, Poland",
+        "phone": "1234567890",
+        "email": "ola22@gmail.com"
+      }
+    },
+    "usermain": {
+      "guard": "7894a2d6e70d4da4a9c90fe9b71d3bbf",
+      "value": {
+        "name": "Bartek",
+        "age": 22,
+        "address": "Lodz, Poland",
+        "phone": "1234567890",
+        "email": "bartek.firek@gmail.com"
+      }
+    },
+    "usermain.nosql": {
+      "guard": "6321964cc2dd47a9b4b9df894eebd0c5",
+      "value": [
+        { "name": "projekt_Wdnbd.txt" },
+        { "name": "nosql1.txt" },
+        { "name": "nosql2.txt" }
+      ]
+    },
+    "usermain.projekt": {
+      "guard": "73ef71db8d5a4883a55da732e422c5be",
+      "value": [{ "name": "projekt_Wdnbd.txt" }]
+    },
+    "usermain.prace domowe": {
+      "guard": "36b1bb903b654b1e866cfc81e2812d86",
+      "value": [
+        { "name": "nosql1.txt" },
+        { "name": "nosql2.txt" },
+        { "name": "regrejsa.txt" }
+      ]
+    },
+    "usermain.regresja": {
+      "guard": "be6613442b4d4fabae9f8866bdfcaf90",
+      "value": [{ "name": "regrejsa.txt" }]
+    },
+    "user1.nosql": {
+      "guard": "a64902027c3d4561b60bdda233823067",
+      "value": [{ "name": "nosql1.txt" }, { "name": "nosql2.txt" }]
+    },
+    "user1.prace domowe": {
+      "guard": "b0b234894f4e4fe8bab6adabf4648533",
+      "value": [
+        { "name": "nosql1.txt" },
+        { "name": "nosql2.txt" },
+        { "name": "regrejsa.txt" }
+      ]
+    },
+    "user3.nosql": {
+      "guard": "b2f0bf8e1f114bab80323676efadf4fb",
+      "value": [{ "name": "regrejsa.txt" }]
+    },
+    "user3.prace domowe": {
+      "guard": "5e2677173da24dbf90dc3efbb9e748dc",
+      "value": [{ "name": "regrejsa.txt" }]
+    }
+  }
+}
