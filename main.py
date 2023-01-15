@@ -21,6 +21,7 @@ def createUser(store, key, user, namespace=NAMESPACE):
     else: 
         result = store.put(key, user, namespace=namespace)
         result = store.save()
+        print(f"User {user['name']} created!")
 
 def createFile(store, user, tags, file, namespace=NAMESPACE):
     result = store.get(user, namespace=namespace)
@@ -36,6 +37,7 @@ def createFile(store, user, tags, file, namespace=NAMESPACE):
         else:
             data["value"].append(file)
             store.put(user+"."+tag, data["value"], namespace=namespace, guard = data["guard"])
+            print(f"File {file['name']} added to tag {tag.upper()}")
         
     result = store.save()
     
@@ -45,7 +47,7 @@ def deleteUser(store, user, namespace=NAMESPACE):
     if not result["success"]:
         print("User doesn't exist")
         return
-    
+    print(f"User {result['value']['name']} deleted")
     tags = []
     for key in store._store[namespace].keys():
         if key.split(".")[0] == user:
@@ -54,7 +56,7 @@ def deleteUser(store, user, namespace=NAMESPACE):
     for tag in tags:
         data = store.get(tag, namespace=namespace)
         result = store.delete(tag, namespace=namespace, guard = data["guard"])
-    
+
     result = store.save()
 
 def searchFileFromTag(store, user, tags, namespace=NAMESPACE):
@@ -94,6 +96,7 @@ def deleteTag(store, user, tag, namespace=NAMESPACE):
         return
     result = store.delete(user+"."+tag, namespace=namespace, guard = result["guard"])
     result = store.save()
+    print(f"Tag {tag.upper()} deleted")
 
 if __name__ == '__main__':
 
@@ -159,7 +162,7 @@ if __name__ == '__main__':
     createFile(store, "user2", ["regresja", "prace domowe"], file3)
     createFile(store, "user3", ["nosql", "prace domowe"], file3)
 
-    deleteUser(store, "user2")
+    deleteUser(store, "user1")
+    deleteTag(store, "user2", "regresja")
 
     searchFileFromAllTags(store, "usermain", ["nosql", "prace domowe"])
-    deleteTag(store, "user1", "regresja")
