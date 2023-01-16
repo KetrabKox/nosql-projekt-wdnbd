@@ -25,18 +25,21 @@ def createUser(store, key, user, namespace=NAMESPACE):
 
 def createFile(store, user, tags, file, namespace=NAMESPACE):
     result = store.get(user, namespace=namespace)
-
     if not result["success"]:
         print("User doesn't exist")
         return
-    
+
+    for tag in tags:
+        if tag not in result['value']['tags']:
+            result['value']['tags'].append(tag)
+
     for tag in tags:
         data = store.get(user+"."+tag, namespace=namespace)
         if not data["success"]:
             result = store.put(user+"."+tag, [file], namespace=namespace)
         else:
             data["value"].append(file)
-            store.put(user+"."+tag, data["value"], namespace=namespace, guard = data["guard"])
+            store.put(user+"."+tag, data["value"], namespace=namespace)
             print(f"File {file['name']} added to tag {tag.upper()}")
         
     result = store.save()
@@ -87,8 +90,35 @@ def searchFileFromAllTags(store, user, tags, namespace=NAMESPACE):
         if files[file]["count"] == len(tags):
             result.append(files[file]["info"])
     
-    print("files found:",result)
+    print("Files found:",result)
 
+def viewTags(store, user, namespace=NAMESPACE):
+    result = store.get(user, namespace=namespace)
+    if not result["success"]:
+        print("User doesn't exist")
+        return
+    print("Tags:", result["value"]["tags"])
+
+def addTags(store, user, tags, file, namespace=NAMESPACE):
+    result = store.get(user, namespace=namespace)
+    
+    if not result["success"]:
+        print("User doesn't exist")
+        return
+    for tag in tags:
+        if tag not in result['value']['tags']:
+            result['value']['tags'].append(tag)
+
+    for tag in tags:
+        data = store.get(user+"."+tag, namespace=namespace)
+        if not data["success"]:
+            result = store.put(user+"."+tag, [file], namespace=namespace)
+        else:
+            data["value"].append(file)
+            store.put(user+"."+tag, data["value"], namespace=namespace)
+            print(f"File {file['name']} added to tag {tag.upper()}")
+        
+    result = store.save()
 def deleteTag(store, user, tag, namespace=NAMESPACE):
     result = store.get(user+"."+tag, namespace=namespace)
     if not result["success"]:
@@ -106,6 +136,7 @@ if __name__ == '__main__':
     store.load()
     user1 = {
         "name": "John",
+        "tags":[],
         "age": 25,
         "address": "New York",
         "phone": "1234567890",
@@ -113,6 +144,7 @@ if __name__ == '__main__':
     }
     user2 = {
         "name": "Jane",
+        "tags":[],
         "age": 30,
         "address": "London",
         "phone": "0987654321",
@@ -120,6 +152,7 @@ if __name__ == '__main__':
     }
     user3={
         "name":"Ola",
+        "tags":[],
         "age": 22,
         "address": "Warsaw, Poland",
         "phone": "1234567890",
@@ -127,6 +160,7 @@ if __name__ == '__main__':
     }
     usermain ={
         "name":"Bartek",
+        "tags":[],
         "age": 22,
         "address": "Lodz, Poland",
         "phone": "1234567890",
@@ -161,8 +195,11 @@ if __name__ == '__main__':
     createFile(store, "user1", ["regresja", "prace domowe"], file3)
     createFile(store, "user2", ["regresja", "prace domowe"], file3)
     createFile(store, "user3", ["nosql", "prace domowe"], file3)
+    addTags(store, "user3", ["wazne",],file3)
+
 
     deleteUser(store, "user1")
     deleteTag(store, "user2", "regresja")
 
+    viewTags(store, "user3")
     searchFileFromAllTags(store, "usermain", ["nosql", "prace domowe"])

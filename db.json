@@ -1,1 +1,70 @@
-{"__default__": {}, "KeyValueDb": {"user2": {"guard": "74904665e09949d18a8ebde6565bad77", "value": {"name": "Jane", "age": 30, "address": "London", "phone": "0987654321", "email": "jane30@gmail.com"}}, "user3": {"guard": "6198efd669b646ee93438002f6ca8b4e", "value": {"name": "Ola", "age": 22, "address": "Warsaw, Poland", "phone": "1234567890", "email": "ola22@gmail.com"}}, "usermain": {"guard": "001f4f845b4645b78600fe787c4b8a38", "value": {"name": "Bartek", "age": 22, "address": "Lodz, Poland", "phone": "1234567890", "email": "bartek.firek@gmail.com"}}, "usermain.nosql": {"guard": "cc156d9b04714e60bc151486dac03a62", "value": [{"name": "projekt_Wdnbd.txt"}, {"name": "nosql1.txt"}, {"name": "nosql2.txt"}]}, "usermain.projekt": {"guard": "6236fef70fea47c4bd4050d56fa8790f", "value": [{"name": "projekt_Wdnbd.txt"}]}, "usermain.prace domowe": {"guard": "63acd2a295fe4521b5060d607f2b4763", "value": [{"name": "nosql1.txt"}, {"name": "nosql2.txt"}, {"name": "regrejsa.txt"}]}, "usermain.regresja": {"guard": "2add5c268d9f4de2bc2c5bdeb8dc9018", "value": [{"name": "regrejsa.txt"}]}, "user2.prace domowe": {"guard": "ff6f361d4ea5439cafc169a93817fa5e", "value": [{"name": "regrejsa.txt"}]}, "user3.nosql": {"guard": "4f0abda8012f4d799167024e03fb69ff", "value": [{"name": "regrejsa.txt"}]}, "user3.prace domowe": {"guard": "03a1b34d46af49f8b3fb95a29ac1cfcd", "value": [{"name": "regrejsa.txt"}]}}}
+{
+  "__default__": {},
+  "KeyValueDb": {
+    "user2": {
+      "guard": "667f9c99575c4a3bb4a92c298210508f",
+      "value": {
+        "name": "Jane",
+        "tags": ["regresja", "prace domowe"],
+        "age": 30,
+        "address": "London",
+        "phone": "0987654321",
+        "email": "jane30@gmail.com"
+      }
+    },
+    "user3": {
+      "guard": "2d40a4ec38c54adbb46ab6bef027b82f",
+      "value": {
+        "name": "Ola",
+        "tags": ["nosql", "prace domowe", "wazne"],
+        "age": 22,
+        "address": "Warsaw, Poland",
+        "phone": "1234567890",
+        "email": "ola22@gmail.com"
+      }
+    },
+    "usermain": {
+      "guard": "54f2a863e63446dd89797c5bb60f8734",
+      "value": {
+        "name": "Bartek",
+        "tags": ["nosql", "projekt", "prace domowe", "regresja"],
+        "age": 22,
+        "address": "Lodz, Poland",
+        "phone": "1234567890",
+        "email": "bartek.firek@gmail.com"
+      }
+    },
+    "usermain.nosql": {
+      "guard": "4650d7af4dbc4791811ee879f9c18909",
+      "value": [{ "name": "projekt_Wdnbd.txt" }]
+    },
+    "usermain.projekt": {
+      "guard": "99c5105c293b41cdbe107ade03bf3551",
+      "value": [{ "name": "projekt_Wdnbd.txt" }]
+    },
+    "usermain.prace domowe": {
+      "guard": "a646db3bda2546bbb9615d32b1c4f706",
+      "value": [{ "name": "nosql1.txt" }]
+    },
+    "usermain.regresja": {
+      "guard": "c98bee03a5ef4e41a6c801bec7a7155e",
+      "value": [{ "name": "regrejsa.txt" }]
+    },
+    "user2.prace domowe": {
+      "guard": "1dc7ae838a774065b37880dc242fe61c",
+      "value": [{ "name": "regrejsa.txt" }]
+    },
+    "user3.nosql": {
+      "guard": "fbbf0ade1cb44cfa91fe7c9d311a61d4",
+      "value": [{ "name": "regrejsa.txt" }]
+    },
+    "user3.prace domowe": {
+      "guard": "890ebaef31f64b859a1431077c9364e3",
+      "value": [{ "name": "regrejsa.txt" }]
+    },
+    "user3.wazne": {
+      "guard": "cdb0feea98ae45c4b6cceda414ab597c",
+      "value": [{ "name": "regrejsa.txt" }]
+    }
+  }
+}
